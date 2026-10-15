@@ -69,15 +69,14 @@ fun FormDataDiri(modifier: Modifier = Modifier) {
                         .selectable(
                             selected = textJK == item,
                             onClick = { textJK = item }
-                        )
-                        .padding(horizontal = 8.dp),
+                        ),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     RadioButton(
                         selected = textJK == item,
                         onClick = { textJK = item }
                     )
-                    Text(text = item)
+                    Text(item)
                 }
             }
         }
@@ -100,15 +99,15 @@ fun FormDataDiri(modifier: Modifier = Modifier) {
         )
 
         Button(
-            modifier = Modifier.fillMaxWidth(),
-            enabled = textAlamat.isNotEmpty() && textNama.isNotEmpty(),
+            modifier = Modifier.fillMaxWidth(1f),
+            enabled = textAlamat.isNotEmpty(),
             onClick = {
                 nama = textNama
                 jenis = textJK
                 alamat = textAlamat
             }
         ) {
-            Text(text = "Submit")
+            Text("Submit")
         }
 
         Divider(
@@ -128,7 +127,11 @@ fun FormDataDiri(modifier: Modifier = Modifier) {
                 .height(150.dp)
                 .width(300.dp)
         ) {
-
+            Column(modifier = Modifier.padding(horizontal = 5.dp, vertical = 15.dp)) {
+                Text(text = "Nama : "+nama, color = Color.White)
+                Text(text = "Gender : "+jenis, color = Color.White)
+                Text(text = "Alamat : "+alamat, color = Color.White)
+            }
         }
     }
 }
