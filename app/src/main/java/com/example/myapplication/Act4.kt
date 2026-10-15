@@ -1,8 +1,10 @@
 package com.example.myapplication
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -38,6 +40,21 @@ fun FormDataDiri(modifier: Modifier){
                 textNama = it
             }
         )
+        Row{
+            gender.forEach { item ->
+                row(modifier = Modifier.selectable(
+                    selected = textJK == item,
+                    onClick = {textJK = item}
+                ), verticalAligment = Alignment.CenterVertically)
+                RadioButton(
+                    selected = textJK == item,
+                    onClick = {
+                        textJK = item
+                    }
+                )
+                Text(item)
+            }
+        }
     }
 
 }
