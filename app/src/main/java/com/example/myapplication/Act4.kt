@@ -1,6 +1,9 @@
 package com.example.myapplication
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -25,7 +28,16 @@ fun FormDataDiri(modifier: Modifier){
     column(modifier = Modifier.padding(top = 50.dp),
         verticalArrangement = Arrangement.Top,
         horizontalAligment = Alignment.CenterHorizontally){
-
+        OutlinedTextField(
+            value = textNama,
+            singleLine = true,
+            shape = MaterialTheme.shapes.large,
+            modifier = Modifier.witdh(250.dp),
+            label = {Text(text = "Nama Lengkap")},
+            onValueChange = {
+                textNama = it
+            }
+        )
     }
 
 }
